@@ -1,0 +1,6 @@
+ddgs
+
+agent-framework --pre
+groq
+docling[chunking]
+bigtree
