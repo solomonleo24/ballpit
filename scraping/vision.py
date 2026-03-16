@@ -1,16 +1,17 @@
-from groq import Groq
+from openai import OpenAI
 import base64
 
 import os
-from dotenv import load_dotenv
-load_dotenv()
 
-client = Groq(api_key = os.getenv('API_KEY'))  # reads GROQ_API_KEY from environment
+client = OpenAI(
+    api_key=os.getenv('API_KEY'),
+    base_url=os.getenv('BASE_URL'),
+)
 
 # Vision function call to vision model to extract and summarize images/plots
 def vision_fn(image_bytes: bytes, context: str) -> str:
     response = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        model=os.getenv('VISION_MODEL'),
         messages=[
             {
                 "role": "user",

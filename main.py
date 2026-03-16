@@ -1,7 +1,10 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import json
 from dataclasses import asdict
 from scraping.paper import Paper
-from vision import vision_fn
+from scraping.vision import vision_fn
 
 from docling_core.types.doc.labels import DocItemLabel
 
